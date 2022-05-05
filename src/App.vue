@@ -9,9 +9,17 @@
         value=""
         style="width: 500px"
       />
-    </form><br />
-    <textarea rows="10" cols="30" style="width: 500px"  v-model="notedata"> </textarea><br />
-    <button @click="onSend">发送</button>
+    </form>
+    <br />
+    <textarea rows="10" cols="30" style="width: 500px" v-model="notedata">
+    </textarea
+    ><br />
+    <button @click="onSend">发送</button> <br />
+    <form action="http://192.168.10.120:26150/upload" method="post" enctype="multipart/form-data">
+      <h2>上传</h2>
+      <input type="file" name="singleFile" />
+      <input type="submit" value="提交" />
+    </form>
   </div>
 </template>
 
@@ -19,10 +27,10 @@
 export default {
   data() {
     return {
-      host: "127.0.0.1",
+      host: "192.168.10.120",
       port: 8686,
       pomelo: null,
-      notedata: ''
+      notedata: "",
     };
   },
   methods: {
